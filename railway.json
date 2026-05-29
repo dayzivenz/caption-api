@@ -1,7 +1,15 @@
-version: "1.0"
-name: caption-api
-services:
-  web:
-    build: .
-    command: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    port: 8000
+{
+  "version": "1.0",
+  "name": "caption-api",
+  "services": [
+    {
+      "name": "web",
+      "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "./Dockerfile"
+      },
+      "command": "uvicorn app.main:app --host 0.0.0.0 --port $PORT",
+      "port": 8000
+    }
+  ]
+}
